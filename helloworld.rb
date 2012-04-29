@@ -35,7 +35,7 @@ __END__
 %a{:style => 'background: url("/red_button.jpeg") no-repeat center center; display: block; height: 225px;', :href => '/generate-error'}
 
 @@ home
-%p{:style => 'font-weight: bold; font-size: 14px'}
+%p{:style => 'font-weight: bold; font-size: 30px'}
   Agile Horizons Test
 %p
   This is the #{ENV['RACK_ENV']} environment
