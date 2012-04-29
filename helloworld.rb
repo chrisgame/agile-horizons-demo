@@ -6,6 +6,9 @@ Airbrake.configure do |config|
   config.api_key = ENV['AIRBRAKE_API_KEY']
 end
 
+use Airbrake::Rack
+enable :raise_errors
+
 get '/?' do
   "This is the #{ENV['RACK_ENV']} environment"
 end
