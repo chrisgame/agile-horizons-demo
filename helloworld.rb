@@ -1,41 +1,21 @@
 require 'sinatra'
 require 'haml'
-require 'airbrake'
-
-Airbrake.configure do |config|
-  config.api_key = ENV['AIRBRAKE_API_KEY']
-end
-
-use Airbrake::Rack
-enable :raise_errors
 
 get '/?' do
   haml :home
-end
-
-get '/error/?' do
-  haml :error_generator
-end
-
-get '/generate-error/?' do
-  raise 'Someone pressed the button'
-  redirect '/error'
 end
 
 __END__
 
 @@ layout
 %html
-  %body{:style => 'text-align: center;'}
+  %body{:style => 'text-align: center; font-weight: bold; font-size: 90px; color: white; background: black url("/fire.jpg") no-repeat top center; font-family: helvetica; text-shadow: 2px 2px black'}
     = yield
 
-@@ error_generator
-%p{:style => 'font-weight: bold;'}
-  Don't Press This Button
-%a{:style => 'background: url("/red_button.jpeg") no-repeat center center; display: block; height: 225px;', :href => '/generate-error'}
-
 @@ home
-%p{:style => 'font-weight: bold; font-size: 30px'}
-  Agile Horizons Test
+%br
 %p
-  This is the #{ENV['RACK_ENV']} environment
+  Hello
+%p
+  Agile Horizons
+
